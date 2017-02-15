@@ -36,13 +36,12 @@
 
     console.log(newInventors);
 
-
-
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
 
     const firstAndLast = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
     console.log(firstAndLast);
+
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
@@ -63,6 +62,7 @@
     const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
     console.log(ordered);
 
+
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
 
@@ -71,6 +71,9 @@
     }, 0);
 
     console.log(yearsLived);
+
+
+
 
     // 5. Sort the inventors by years lived
 
@@ -88,6 +91,7 @@
     });
 
     console.log(yearsLivedOrder2);
+
 
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
@@ -108,15 +112,15 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
-    const alpha = people.sort((lastOne, nextOne) => {
-
-      const [alast, afirst] = lastOne.split(', ');
-      const [blast, bfirst] = nextOne.split(', ')
-
-      return (lastOne > nextOne ? 1 : -1);
-
-    });
-    console.log(alpha);
+    // const alpha = people.sort((lastOne, nextOne) => {
+    //
+    //   const [alast, afirst] = lastOne.split(', ');
+    //   const [blast, bfirst] = nextOne.split(', ')
+    //
+    //   return (lastOne > nextOne ? 1 : -1);
+    //
+    // });
+    // console.log(alpha);
 
 
     // 8. Reduce Exercise
@@ -124,6 +128,8 @@
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
     const transportation = data.reduce(function(obj, item) {
+
+
       if(!obj[item]) {
         obj[item] = 0;
       }
