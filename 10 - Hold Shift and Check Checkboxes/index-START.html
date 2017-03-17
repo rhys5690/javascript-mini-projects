@@ -99,6 +99,58 @@
   </div>
 
 <script>
+
+// //Create variable for all inputs
+// const inputs = Array.from(document.querySelectorAll("input"));
+//
+// //Create function for shift key pressed
+//
+// function shiftPressed (x) {
+//   console.log("shift pressed");
+// };
+//
+// //Create checkbox clicked function
+//
+// function checkBoxClicked() {
+//   const clickedBox = this;
+//
+//   window.addEventListener("shiftKey", shiftPressed(clickedBox))
+// };
+//
+// //loop through all the checkboxes
+// inputs.forEach(input => {
+//
+//   //Add event listener for clicking the checkbox
+//   input.addEventListener("click", checkBoxClicked)
+// });
+//
+// window.addEventListener("shiftKey", function() {
+//   console.log("hahahahha")
+// });
+//   //Save marked checkbox (this) in a variable
+//
+//     //Call a function for calculating any other input checkboxes which boxes between the originally checked box and where the mouse currently is
+//
+//     //Save input boxes calulcated in a variable
+//
+//     //Add event listener for listening to the release of the shift key
+//
+//       //Call function activating the click of inputs above (pass in the inputs variable as a parameter)
+//
+// //
+
+const checkBoxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+function handleCheck(e) {
+  console.log(e);
+};
+
+checkBoxes.forEach(checkBox => checkBox.addEventListener("click", handleCheck));
+
+
+
+
+
 </script>
 </body>
 </html>
