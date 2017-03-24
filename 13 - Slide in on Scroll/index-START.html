@@ -43,20 +43,67 @@
   </div>
 
   <script>
-    function debounce(func, wait = 20, immediate = true) {
-      var timeout;
-      return function() {
-        var context = this, args = arguments;
-        var later = function() {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
+  function debounce(func, wait = 20, immediate = true) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
       };
-    }
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+
+  //Create variable for all the images on the page
+
+  const sliderImages = document.querySelectorAll('.slide-in');
+  console.log(sliderImages);
+
+  //Create function for displaying images and making them dissapear again
+
+  function checkScroll(e) {
+
+
+    //iterate through the images on the page
+
+    sliderImages.forEach(sliderImage => {
+
+      //create variable for the distance between half way though each image and the top of the page
+
+      const slideInAt = (window.scrollY + window.innerHeight) - (sliderImage.height / 2);
+
+
+      //Create variable for the distance between the bottom of each image and the top of the page
+
+      const bottomOfEachImage = sliderImage.offsetTop + sliderImage.height;
+
+      //Create boolean variable for when you have scrolled half way through an image
+
+      const halfWayThrough = slideInAt > sliderImage.offsetTop;
+
+      //Create boolean variable for when an image has been scrolled off screen
+
+      const notScrolledPast = window.scrollY < bottomOfEachImage;
+
+      //create if statement for showing images when you have scolled half way through an image and the image has not been scrolled passed. Otherwise hide the image
+
+      if (halfWayThrough && notScrolledPast) {
+        sliderImage.classList.add('active');
+      } else {
+        sliderImage.classList.remove('active');
+      }
+    });
+}
+
+//add event listener for scroll
+
+window.addEventListener('scroll', debounce(checkScroll));
+
+
 
   </script>
 
