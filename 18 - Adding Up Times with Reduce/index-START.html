@@ -182,6 +182,42 @@
     </li>
   </ul>
 <script>
+  //Declare videos
+
+  // const videos = document.querySelectorAll('li');
+  // console.log(videos);
+  //
+  // const newArr = []
+  // console.log(newArr.length);
+  //
+  // //Create function to add up data set
+  //
+  // function addDataTime() {
+  //   videos.forEach(video => {
+  //
+  //     const allTimes = video.dataset.time;
+  //
+  //     return newArr.push(allTimes);
+  //   });
+  // }
+  // //Call function
+  // addDataTime();
+
+  const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+
+  const seconds = timeNodes
+  .map(node => node.dataset.time)
+  .map(timeCode => {
+    const [mins, secs] = timeCode.split(':')
+    .map(parseFloat);
+    return (mins * 60) + secs;
+  })
+  .reduce((total, seconds) => {
+    return total + seconds;
+  });
+
+  console.log(total, videSeconds);
+
 </script>
 </body>
 </html>
