@@ -45,9 +45,12 @@ let scrollLeft;
 slider.addEventListener('mousedown', (e) => {
  isDown = true;
  slider.classList.add('active');
- console.log(e.screenX);
+ console.log(e.screenX, slider.offsetLeft);
+
  startX = e.screenX - slider.offsetLeft;
  scrollLeft = slider.scrollLeft;
+
+
 });
 slider.addEventListener('mouseleave', () => {
   isDown = false;
@@ -62,9 +65,8 @@ slider.addEventListener('mousemove', (e) => {
   e.preventDefault();
 
   const x = e.pageX - slider.offsetLeft;
-  
-
-  slider.style.setproperty('transform', `translate${}`)
+  const walk = x - startX;
+  slider.scrollLeft = scrollLeft - walk;
 });
 
 </script>
